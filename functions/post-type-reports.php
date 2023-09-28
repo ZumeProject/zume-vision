@@ -185,6 +185,20 @@ class Zume_Reports_Post_Type
             'rewrite' => array( 'slug' => 'report-categories' ),
             'show_in_rest' => true,
         ));
+
+        register_taxonomy('report_tag', 'reports', array(
+            'hierarchical' => true,
+            'labels' => [
+                'name' => _x( 'Report Tags', 'taxonomy general name' ),
+                'singular_name' => _x( 'Tags', 'taxonomy singular name' ),
+                'menu_name' => __( 'Tags' ),
+            ],
+            'show_ui' => true,
+            'update_count_callback' => '_update_post_term_count',
+            'query_var' => true,
+            'rewrite' => array( 'slug' => 'report-tags' ),
+            'show_in_rest' => true,
+        ));
     }
 
 
